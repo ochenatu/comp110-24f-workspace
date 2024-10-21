@@ -8,6 +8,8 @@ def all(x: list[int], y: int) -> bool:
     for elem in x:
         if elem != y:
             return False
+    if len(x) == 0:
+        return False
     return True
 
 
