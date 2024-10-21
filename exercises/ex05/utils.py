@@ -15,7 +15,16 @@ def only_evens(x: list[int]) -> list[int]:
 def sub(x: list[int], num1: int, num2: int) -> list[int]:
     """Create a list of the numbers in the given range"""
     y: list[int] = []
-    for elem in range(num1, num2 + 1, 1):
+
+    if len(x) == 0 or num1 >= num2 or num1 >= len(x):
+        return []
+
+    if num1 < 0:
+        num1 = 0
+    if num2 > len(x):
+        num2 = len(x)
+
+    for elem in range(num1, num2, 1):
         y.append(x[elem])
     return y
 
@@ -24,4 +33,4 @@ def add_at_index(x: list[int], num1: int, num2: int) -> None:
     """Inserts num1 at index of num2 in x list"""
     if num2 < 0 or num2 > len(x):
         raise IndexError("Index is out of bounds for the input list")
-    x.insert(num1, num2)
+    x.insert(num2, num1)
